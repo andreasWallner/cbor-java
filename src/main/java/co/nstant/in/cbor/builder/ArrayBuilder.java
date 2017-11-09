@@ -49,6 +49,10 @@ public class ArrayBuilder<T extends AbstractBuilder<?>> extends
         add(convert(string));
         return this;
     }
+    
+    public ArrayTagBuilder<ArrayBuilder<T>> addTagged(long value) {
+        return new ArrayTagBuilder<ArrayBuilder<T>>(this, tag(value));
+    }
 
     public ArrayBuilder<ArrayBuilder<T>> addArray() {
         Array nestedArray = new Array();
